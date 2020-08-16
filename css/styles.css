@@ -3,6 +3,12 @@
   src: url(../Roboto/Roboto-Thin.ttf);
 }
 
+.featurette img{
+  max-height: 400px;
+  max-width: 400px;
+  padding-top: 4em;
+}
+
 .company-name{
   font-family: RobotoThin;
 }
@@ -156,6 +162,10 @@ body {
   .featurette-heading-home {
     margin-top: 4rem;
     margin-bottom: 2em;
+  }
+  .featurette-subheading {
+    margin-top: 0.8rem;
+    margin-bottom: 0.5em;
   }
 }
 
