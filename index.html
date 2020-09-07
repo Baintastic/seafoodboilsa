@@ -73,6 +73,15 @@
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Welcome to Seafood Boil SA.</h1>
+            <form>
+              <input type="text" id="firstName" placeholder="first name">
+              <input type="text" id="lastName" placeholder="last name">
+              <input type="text" id="email" placeholder="email address">
+              <input type="text" id="cellNumber" placeholder="cellphone">
+              <input type="text" id="address" placeholder="address">
+              <button type="submit" value="Submit">Submit</button>
+            </form>
+          
             <br>
             <p>Seafood Boil SA is the first formal online restaurant to bring you Seafood boils to South Africa. </p>
             <!-- <p>From our decadent mouth watering sauces,  to our succulent jumbo prawns, lobsters tails and Alaskan king crab, there’s no doubt we are South Africa’s most loved Seafood Boil restaurant. </p> -->
@@ -168,7 +177,35 @@
         <p>&copy; 2020 Seafood Boil SA. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
     </main>
-    <script src="js/jquery/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $('form').on('submit', (e)=> {
+        e.preventDefault();
+
+        const firstName = $('#firstName').val().trim();
+        const lastName = $('#lastName').val().trim();
+        const cellNumber = $('#cellNumber').val().trim();
+        const deliveryAddress = $('#address').val().trim();
+        const subject = 'New Order Confirmation';
+        const clientEmail = $('#email').val().trim();
+        const total = 550;
+        const deliveryFee = 50;
+        var date = new Date().toLocaleString() ;
+        const meals = [
+          {quantity: 2, name: "Platter for 2", price: 840},
+          {quantity: 1, name: "6 Mussels", price: 30},
+          {quantity: 1, name: "300g Shrimp", price: 50},
+          {quantity: 1, name: "300g Sweet Potatoes", price: 25}
+        ];
+        var data = {
+           subject, firstName, lastName, cellNumber, deliveryAddress, clientEmail, subject, total, deliveryFee, date, meals
+        };
+
+        $.post('/email', data, function(){
+        console.log('Server received our data')
+      })
+      })
+  </script>
     <!-- <script src="js/potterjs/potter.min.js"></script> -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
