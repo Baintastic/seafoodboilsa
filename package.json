@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/mdu74/seafoodboilsa#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "nodemailer": "^6.4.11",
     "nodemailer-mailgun-transport": "^2.0.0"
   }
